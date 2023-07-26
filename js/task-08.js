@@ -7,15 +7,17 @@ function onSubmit(evt) {
 
    
 const { email, password } = evt.currentTarget.elements;
-    console.log(email.value);
+  
 
     if (email.value === '' || password.value === '') {
         alert('Всі поля повинні бути заповненні')
-    }
-    const data = {
+    } else { const data = {
         email: email.value,
-        password : password.value
+        password: password.value
+        
     }
-    console.log(data)
+     console.log(data)}
+   
+   
     formEl.reset()
 }
