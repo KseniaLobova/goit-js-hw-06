@@ -10,14 +10,14 @@ const { email, password } = evt.currentTarget.elements;
   
 
     if (email.value === '' || password.value === '') {
-        alert('Всі поля повинні бути заповненні')
+     return   alert('Всі поля повинні бути заповненні')
     } else { const data = {
         email: email.value,
         password: password.value
         
     }
-     console.log(data)}
-   
+     
+   console.log(data)}
    
     formEl.reset()
 }
