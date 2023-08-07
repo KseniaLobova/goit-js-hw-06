@@ -3,6 +3,9 @@ function getRandomHexColor() {
     .toString(16)
     .padStart(6, 0)}`;
 }
+
+
+
 const creatButton = document.querySelector('button[data-create')
 const destroyButton = document.querySelector('button[data-destroy')
 const container = document.querySelector('#boxes')
@@ -13,9 +16,10 @@ const inputEl = div.firstElementChild
 
 
 creatButton.addEventListener('click', creatBtn)
+destroyButton.addEventListener('click', destroyBoxes)
 
-let boxes = []
-let boxSize = 30;
+// let boxes = []
+let boxSize = 20;
 
 function creatBtn(evt) {
   
@@ -31,23 +35,34 @@ function creatBtn(evt) {
 
 
 function creatBoxes(amount) {
+  const fragment = document.createDocumentFragment();
   for (let i = 0; i < amount; i += 1){
   
-    let creatEl = document.createElement('div')
+    const creatEl = document.createElement('div')
     creatEl.style.width = `${boxSize}px`
     creatEl.style.height = `${boxSize}px`;
     boxSize += 10;
   
     creatEl.style.backgroundColor = getRandomHexColor()
-    boxes.push(creatEl)
+    // boxes.push(creatEl)
+     fragment.append(creatEl)
   }
+ 
 
-  container.append(...boxes)
-  console.log(container)
+  inputEl.value = 0;
+  // container.append(...boxes)
+  container.append(fragment)
+ 
 }
 
-destroyButton.addEventListener('click', destroyBoxes)
-function destroyBoxes(evt) {
+
+function destroyBoxes() {
   container.innerHTML = '';
-  inputEl.value = ''
+  boxSize = 20;
+  inputEl.value = 0;
 }
+
+
+
+
+
